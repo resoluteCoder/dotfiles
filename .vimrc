@@ -1,12 +1,24 @@
+set nocompatible
+
 call plug#begin('~/.vim/plugged')
     Plug 'gruvbox-community/gruvbox'
-    Plug 'preservim/nerdtree'
-    Plug 'dense-analysis/ale'
-    Plug 'sheerun/vim-polyglot'
+    Plug 'pangloss/vim-javascript'
+    Plug 'leafgarland/typescript-vim'
+    Plug 'maxmellon/vim-jsx-pretty'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'turbio/bracey.vim'
 call plug#end()
 
+"plugins
+"gruvbox theme
+"js syntax support
+"ts syntax support
+"jsx/tsx syntax support
+"intellisense/linter/code completion
+
+let g:coc_global_extensions = [ 'coc-tsserver' ]
+
+"formatter
+autocmd FileType typescript setlocal formatprg=prettier\ --parser\ typescript
 
 " auto set tab to 4 spaces
 set tabstop=4 softtabstop=4
@@ -25,6 +37,7 @@ set incsearch "highlights as you search
 set scrolloff=8 "as you scroll towards bottom of file starts scrolling 8 from bottom
 set signcolumn=yes "adds bar to left for msgs
 set colorcolumn=80 "adds bar 80 from left
+set splitbelow "opens new window below
 
 " remove arrow keys
 noremap <left> <nop>
