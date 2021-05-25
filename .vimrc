@@ -21,8 +21,8 @@ let g:coc_global_extensions = [ 'coc-tsserver' ]
 autocmd FileType typescript setlocal formatprg=prettier\ --parser\ typescript
 
 " auto set tab to 4 spaces
-set tabstop=4 softtabstop=4
-set shiftwidth=4
+set tabstop=2 softtabstop=2
+set shiftwidth=2
 set expandtab
 set smartindent
 set nowrap
@@ -40,12 +40,23 @@ set colorcolumn=80 "adds bar 80 from left
 set splitbelow "opens new window below
 
 " remove arrow keys
-noremap <left> <nop>
-noremap <up> <nop>
-noremap <down> <nop>
-noremap <right> <nop>
+" noremap <left> <nop>
+" noremap <up> <nop>
+" noremap <down> <nop>
+" noremap <right> <nop>
 
+" remove arrow keys - all modes
+noremap  <Up> ""
+noremap! <Up> <Esc>
+noremap  <Down> ""
+noremap! <Down> <Esc>
+noremap  <Left> ""
+noremap! <Left> <Esc>
+noremap  <Right> ""
+noremap! <Right> <Esc>
 colorscheme gruvbox "sets colorscheme on bootup
 
+"rename tmux window to filename
+"autocmd BufReadPost,FileReadPost,BufNewFile,BufEnter * call system("tmux rename-window 'vim | " . expand("%:t") . "'")
 
 set background=dark
