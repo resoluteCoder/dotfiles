@@ -6,6 +6,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'leafgarland/typescript-vim'
     Plug 'maxmellon/vim-jsx-pretty'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown'}
 call plug#end()
 
 "plugins
@@ -14,6 +15,7 @@ call plug#end()
 "ts syntax support
 "jsx/tsx syntax support
 "intellisense/linter/code completion
+"markdown viewer
 
 let g:coc_global_extensions = [ 'coc-tsserver' ]
 
@@ -26,6 +28,14 @@ set shiftwidth=2
 set expandtab
 set smartindent
 set nowrap
+
+" shows active filename
+set statusline+=%f
+set laststatus=2
+
+
+"disables auto comment
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 set exrc "allows vimrc to be sourced in current proj
 
