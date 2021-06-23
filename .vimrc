@@ -7,6 +7,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'maxmellon/vim-jsx-pretty'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown'}
+    Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+
 call plug#end()
 
 "plugins
@@ -36,6 +38,11 @@ set laststatus=2
 
 "disables auto comment
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 set exrc "allows vimrc to be sourced in current proj
 
