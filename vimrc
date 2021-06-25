@@ -1,28 +1,18 @@
 set nocompatible
 
 call plug#begin('~/.vim/plugged')
+    " gruvbox color scheme
     Plug 'gruvbox-community/gruvbox'
-    Plug 'pangloss/vim-javascript'
-    Plug 'leafgarland/typescript-vim'
-    Plug 'maxmellon/vim-jsx-pretty'
+    " collection of language syntax packs 
+    Plug 'sheerun/vim-polyglot'
+    " LSP, Completion
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown'}
+    " File search
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
 call plug#end()
 
-"plugins
-"gruvbox theme
-"js syntax support
-"ts syntax support
-"jsx/tsx syntax support
-"intellisense/linter/code completion
-"markdown viewer
-
-let g:coc_global_extensions = [ 'coc-tsserver' ]
-
-"formatter
-autocmd FileType typescript setlocal formatprg=prettier\ --parser\ typescript
-
-" auto set tab to 4 spaces
+" auto set tab to 2 spaces
 set tabstop=2 softtabstop=2
 set shiftwidth=2
 set expandtab
@@ -34,8 +24,23 @@ set statusline+=%f
 set laststatus=2
 
 
-"disables auto comment
+" disables auto comment
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+" Remap for vim windows
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Remap for FZF
+nnoremap <C-f> :Files<CR>
+
+" Remap windows selection keys for FZF
+let g:fzf_action = {
+      \ 'ctrl-t': 'tab split',
+  \ 'ctrl-v': 'split',
+  \ 'ctrl-h': 'vsplit' }
 
 set exrc "allows vimrc to be sourced in current proj
 
@@ -47,13 +52,8 @@ set incsearch "highlights as you search
 set scrolloff=8 "as you scroll towards bottom of file starts scrolling 8 from bottom
 set signcolumn=yes "adds bar to left for msgs
 set colorcolumn=80 "adds bar 80 from left
-set splitbelow "opens new window below
-
-" remove arrow keys
-" noremap <left> <nop>
-" noremap <up> <nop>
-" noremap <down> <nop>
-" noremap <right> <nop>
+set splitbelow "opens new window below :sp
+set splitright "opens new window right :vsp
 
 " remove arrow keys - all modes
 noremap  <Up> ""
@@ -65,8 +65,5 @@ noremap! <Left> <Esc>
 noremap  <Right> ""
 noremap! <Right> <Esc>
 colorscheme gruvbox "sets colorscheme on bootup
-
-"rename tmux window to filename
-"autocmd BufReadPost,FileReadPost,BufNewFile,BufEnter * call system("tmux rename-window 'vim | " . expand("%:t") . "'")
 
 set background=dark
