@@ -1,4 +1,6 @@
 set nocompatible
+set noshowmode
+
 
 call plug#begin('~/.vim/plugged')
     " gruvbox color scheme
@@ -10,6 +12,8 @@ call plug#begin('~/.vim/plugged')
     " File search
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
+    " lightline for vim statusline
+     Plug 'itchyny/lightline.vim'
 call plug#end()
 
 " auto set tab to 2 spaces
@@ -67,3 +71,16 @@ noremap! <Right> <Esc>
 colorscheme gruvbox "sets colorscheme on bootup
 
 set background=dark
+
+" lightline config
+let g:lightline = {
+        \ 'colorscheme': 'gruvbox',
+      \ 'active': {
+        \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+        \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
+
