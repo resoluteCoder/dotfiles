@@ -14,6 +14,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/fzf.vim'
     " lightline for vim statusline
      Plug 'itchyny/lightline.vim'
+     " snippets
+     Plug 'SirVer/ultisnips'
+     Plug 'honza/vim-snippets'
 call plug#end()
 
 " auto set tab to 2 spaces
@@ -58,6 +61,37 @@ set signcolumn=yes "adds bar to left for msgs
 set colorcolumn=80 "adds bar 80 from left
 set splitbelow "opens new window below :sp
 set splitright "opens new window right :vsp
+
+" commands for snippet plugin
+let g:UltiSnipsExpandTrigger="<tab>"
+" list all snippets for current filetype
+let g:UltiSnipsListSnippets="<c-l>"
+
+" manual ts hover doc
+nnoremap <silent> K :call CocAction('doHover')<CR>
+
+" typescript hover documentation
+" function! ShowDocIfNoDiagnostic(timer_id)
+"   if (coc#float#has_float() == 0 && CocHasProvider('hover') == 1)
+"     silent call CocActionAsync('doHover')
+"   endif
+" endfunction
+" 
+" function! s:show_hover_doc()
+"   call timer_start(500, 'ShowDocIfNoDiagnostic')
+" endfunction
+" 
+" autocmd CursorHoldI * :call <SID>show_hover_doc()
+" autocmd CursorHold * :call <SID>show_hover_doc()
+
+
+" NEEDS TO BE TESTED
+" nmap <silent> gd <Plug>(coc-definition)
+" nmap <silent> gy <Plug>(coc-type-definition)
+" nmap <silent> gr <Plug>(coc-references)
+" 
+" nmap <silent> [g <Plug>(coc-diagnostic-prev)
+" nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " remove arrow keys - all modes
 noremap  <Up> ""
