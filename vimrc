@@ -33,8 +33,8 @@ nnoremap B ^
 nnoremap E $
 
 " Map jk to ESC in insert mode
-inoremap jk <esc>" Disable Esp key in insert mode
-inoremap <esc> <nop>
+" inoremap jk <esc>" Disable Esp key in insert mode
+" inoremap <esc> <nop>
 
 " auto set tab to 2 spaces
 set tabstop=2 softtabstop=2
