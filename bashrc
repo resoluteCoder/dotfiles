@@ -16,8 +16,7 @@ alias gd="git diff"
 alias gf="git fetch"
 alias gfa="git fetch --all"
 alias gl="git log --color --graph --pretty=format:'%Cred%h%Creset %Cgreen(%cr) %C(bold blue)<%an>%Creset -%C(yellow)%d%Creset %s' --abbrev-commit"
-alias gph="git push"
-alias gpo="git push origin"
+alias gpu="git push"
 alias gpl="git pull"
 alias gs="git status -sb"
 
@@ -28,14 +27,13 @@ if [[ -f /usr/share/bash-completion/completions/git ]]; then
     __git_complete ga   _git_add
     __git_complete gb   _git_branch
     __git_complete gc   _git_commit
-    __git_complete gcm  _git_commit
+    __get_complete gcm  _git_commit
     __git_complete gco  _git_checkout
     __git_complete gd   _git_diff
     __git_complete gf   _git_fetch
     __git_complete gfa  _git_fetch
-    __git_complete gph  _git_push
+    __git_complete gpu  _git_push
     __git_complete gpl  _git_pull
-    __git_complete gpr  _git_pull
     __git_complete gs   _git_status
 fi
 
