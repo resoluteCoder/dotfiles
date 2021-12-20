@@ -59,15 +59,13 @@ nnoremap <Leader>8 8gt
 nnoremap <Leader>9 9gt
 
 " Easily create a new tab.
-noremap <Leader>tN :tabnew<CR>
+noremap <Leader>nt :tabnew<CR>
 " Easily close a tab.
-noremap <Leader>tc :tabclose<CR>
+noremap <Leader>ct :tabclose<CR>
 " Easily move a tab.
-noremap <Leader>tm :tabmove<CR>
-" Easily go to next tab.
-noremap <Leader>tn :tabnext<CR>
+noremap <Leader>mt :tabmove<CR>
 " Easily go to previous tab.
-noremap <Leader>tp :tabprevious<CR>
+noremap <Leader>pt :tabprevious<CR>
 
 " disables auto comment
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
@@ -124,9 +122,9 @@ nnoremap <silent> K :call CocAction('doHover')<CR>
 
 
 " NEEDS TO BE TESTED
-" nmap <silent> gd <Plug>(coc-definition)
-" nmap <silent> gy <Plug>(coc-type-definition)
-" nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gr <Plug>(coc-references)
 " 
 " nmap <silent> [g <Plug>(coc-diagnostic-prev)
 " nmap <silent> ]g <Plug>(coc-diagnostic-next)
