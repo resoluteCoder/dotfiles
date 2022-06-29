@@ -1,7 +1,3 @@
-set nocompatible
-set noshowmode
-
-
 call plug#begin('~/.vim/plugged')
     " gruvbox color scheme
     Plug 'gruvbox-community/gruvbox'
@@ -19,6 +15,27 @@ call plug#begin('~/.vim/plugged')
      Plug 'honza/vim-snippets'
 call plug#end()
 
+set nocompatible
+set noshowmode
+
+" map leader to comma
+let mapleader = ","
+
+" Toggle Relative Number
+nnoremap <silent> <leader>nb :set relativenumber!<CR>
+
+" Make j and k move to the next row, not file line
+nnoremap j gj
+nnoremap k gk
+
+" Move to beginning/end of line
+nnoremap B ^
+nnoremap E $
+
+" Map jk to ESC in insert mode
+" inoremap jk <esc>" Disable Esp key in insert mode
+" inoremap <esc> <nop>
+
 " auto set tab to 2 spaces
 set tabstop=2 softtabstop=2
 set shiftwidth=2
@@ -30,6 +47,25 @@ set nowrap
 set statusline+=%f
 set laststatus=2
 
+" Switch between tabs
+nnoremap <Leader>1 1gt
+nnoremap <Leader>2 2gt
+nnoremap <Leader>3 3gt
+nnoremap <Leader>4 4gt
+nnoremap <Leader>5 5gt
+nnoremap <Leader>6 6gt
+nnoremap <Leader>7 7gt
+nnoremap <Leader>8 8gt
+nnoremap <Leader>9 9gt
+
+" Easily create a new tab.
+noremap <Leader>nt :tabnew<CR>
+" Easily close a tab.
+noremap <Leader>ct :tabclose<CR>
+" Easily move a tab.
+noremap <Leader>mt :tabmove<CR>
+" Easily go to previous tab.
+noremap <Leader>pt :tabprevious<CR>
 
 " disables auto comment
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
@@ -86,9 +122,9 @@ nnoremap <silent> K :call CocAction('doHover')<CR>
 
 
 " NEEDS TO BE TESTED
-" nmap <silent> gd <Plug>(coc-definition)
-" nmap <silent> gy <Plug>(coc-type-definition)
-" nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gr <Plug>(coc-references)
 " 
 " nmap <silent> [g <Plug>(coc-diagnostic-prev)
 " nmap <silent> ]g <Plug>(coc-diagnostic-next)
