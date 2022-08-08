@@ -13,6 +13,8 @@ call plug#begin('~/.vim/plugged')
      " snippets
      Plug 'SirVer/ultisnips'
      Plug 'honza/vim-snippets'
+     " code commenting power!
+     Plug 'tpope/vim-commentary'
 call plug#end()
 
 set nocompatible
@@ -37,15 +39,15 @@ nnoremap E $
 " inoremap <esc> <nop>
 
 " auto set tab to 2 spaces
-set tabstop=2 softtabstop=2
-set shiftwidth=2
+set tabstop=4 softtabstop=4
+set shiftwidth=4
 set expandtab
 set smartindent
 set nowrap
 
 " shows active filename
 set statusline+=%f
-set laststatus=2
+set laststatus=4
 
 " Switch between tabs
 nnoremap <Leader>1 1gt
@@ -59,9 +61,10 @@ nnoremap <Leader>8 8gt
 nnoremap <Leader>9 9gt
 
 " Easily create a new tab.
-noremap <Leader>nt :tabnew<CR>
 " Easily close a tab.
 noremap <Leader>ct :tabclose<CR>
+" Move to next tab
+noremap <Leader>nt :tabnew<CR>
 " Easily move a tab.
 noremap <Leader>mt :tabmove<CR>
 " Easily go to previous tab.

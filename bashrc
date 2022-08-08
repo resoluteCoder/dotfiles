@@ -2,11 +2,18 @@
 
 tmux 2> /dev/null
 
-# general aliases
+# general 
 alias ls="ls --group-directories-first --color=auto"
 alias pglogin="export PGPASSWORD='postgres'; psql -d test_db -U postgres"
+alias ll='ls -al --group-directories-first --color=auto'
+alias docker='podman'
 
-# git aliases
+#rust cargo 
+alias cr="cargo run -q"
+alias cb="cargo build"
+alias ct="cargo test"
+
+# git 
 alias g="git"
 alias ga="git add"
 alias gb="git branch -v"
@@ -20,22 +27,39 @@ alias gpu="git push"
 alias gpl="git pull"
 alias gs="git status -sb"
 
+
+# Source bash-completions if available
+#   Yes, I know technically this should go in ~/.bash_profile but shhhhh
+if ! shopt -oq posix; then
+    if [ -f /etc/profile.d/bash_completion.sh ]; then
+        . /etc/profile.d/bash_completion.sh
+    fi
+    if [ -f /usr/share/bash-completion/bash_completion ]; then
+        . /usr/share/bash-completion/bash_completion
+    elif [ -f /etc/bash_completion ]; then
+        . /etc/bash_completion
+    fi
+    if [ -f ~/.local/poetry.bash-completion ]; then
+        . ~/.local/poetry.bash-completion
+    fi
+fi
+
 # setup bash completion for the alias (if available)
-# if [[ -f /usr/share/bash-completion/completions/git ]]; then
-#     . /usr/share/bash-completion/completions/git
-#     __git_complete g    __git_main
-#     __git_complete ga   _git_add
-#     __git_complete gb   _git_branch
-#     __git_complete gc   _git_commit
-#     __get_complete gcm  _git_commit
-#     __git_complete gco  _git_checkout
-#     __git_complete gd   _git_diff
-#     __git_complete gf   _git_fetch
-#     __git_complete gfa  _git_fetch
-#     __git_complete gpu  _git_push
-#     __git_complete gpl  _git_pull
-#     __git_complete gs   _git_status
-# fi
+ if [[ -f /usr/share/bash-completion/completions/git ]]; then
+     . /usr/share/bash-completion/completions/git
+     __git_complete g    __git_main
+     __git_complete ga   _git_add
+     __git_complete gb   _git_branch
+     __git_complete gc   _git_commit
+     __git_complete gcm  _git_commit
+     __git_complete gco  _git_checkout
+     __git_complete gd   _git_diff
+     __git_complete gf   _git_fetch
+     __git_complete gfa  _git_fetch
+     __git_complete gpu  _git_push
+     __git_complete gpl  _git_pull
+     __git_complete gs   _git_status
+ fi
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
@@ -62,3 +86,8 @@ if [ -d ~/.bashrc.d ]; then
 fi
 
 unset rc
+. "$HOME/.cargo/env"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
