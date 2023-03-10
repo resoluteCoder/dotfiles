@@ -5,6 +5,7 @@ tmux 2> /dev/null
 
 # general aliases
 alias ls="ls --group-directories-first --color=auto"
+alias la="ls --group-directories-first -d .* 2> /dev/null"
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
