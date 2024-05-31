@@ -1,20 +1,21 @@
 # .bashrc
-
-# invoke tmux on launch, ignore weird tmux errors
 tmux 2> /dev/null
 
-# general aliases
+#alias
+alias vim="nvim"
 alias ls="ls --group-directories-first --color=auto"
-alias la="ls --group-directories-first -d .* 2> /dev/null"
+alias lh="ls --group-directories-first -d .* 2> /dev/null"
+
+# add go binary to path
+export PATH=$PATH:/usr/local/go/bin
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
+    . /etc/bashrc
 fi
 
 # User specific environment
-if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
-then
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
     PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 fi
 export PATH
@@ -24,11 +25,10 @@ export PATH
 
 # User specific aliases and functions
 if [ -d ~/.bashrc.d ]; then
-	for rc in ~/.bashrc.d/*; do
-		if [ -f "$rc" ]; then
-			. "$rc"
-		fi
-	done
+    for rc in ~/.bashrc.d/*; do
+        if [ -f "$rc" ]; then
+            . "$rc"
+        fi
+    done
 fi
-
 unset rc
