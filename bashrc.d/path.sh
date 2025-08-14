@@ -6,3 +6,6 @@ export PATH
 
 # golang goodness
 export PATH=$PATH:/usr/local/go/bin
+
+# rustyyyyyy, rusty wallace
+. "$HOME/.cargo/env"

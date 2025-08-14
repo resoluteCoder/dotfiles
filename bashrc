@@ -17,3 +17,8 @@ unset rc
 
 # offerings to the void
 tmux 2> /dev/null
+
+# praise the sun
+set -o vi
+export EDITOR=vim
+export VISUAL=vim
